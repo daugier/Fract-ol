@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/06 16:12:04 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/08 20:37:04 by daugier          ###   ########.fr       */
+/*   Created: 2016/09/13 17:28:31 by daugier           #+#    #+#             */
+/*   Updated: 2016/09/13 21:08:17 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 void	define_color(t_struct *data)
 {
 	if (ITER > 0 && ITER < 10)
-		COLOR = 0xFF0000;
-	else if (ITER > 10 && ITER < 20)
-		COLOR = 0xFFFF00;
-	else if (ITER > 20 && ITER < 30)
-		COLOR = 0xFFFFFF;
-	else if (ITER > 30 && ITER < 40)
-		COLOR = 0x00FFFF;
-	else if (ITER > 40 && ITER < 50)
-		COLOR = 0x0000FF;
-	else if (ITER > 50 && ITER < 60)
 		COLOR = 0x000000;
+	else if (ITER > 10 && ITER < 20)
+		COLOR = 0x000033;
+	else if (ITER > 20 && ITER < 30)
+		COLOR = 0x000066;
+	else if (ITER > 30 && ITER < 40)
+		COLOR = 0x000099;
+	else if (ITER > 40 && ITER < 50)
+		COLOR = 0x0000CC;
+	else if (ITER > 50 && ITER < 60)
+		COLOR = 0x0000FF;
 	else if (ITER > 60 && ITER < 70)
-		COLOR = 0x00FF00;
+		COLOR = 0x3300FF;
 	else if (ITER > 70 && ITER < 80)
-		COLOR = 0xF00000;
+		COLOR = 0x3300CC;
 	else if (ITER > 80 && ITER < 90)
-		COLOR = 0x0F0000;
+		COLOR = 0x330099;
 	else if (ITER > 90 && ITER < 100)
-		COLOR = 0xFFF000;
+		COLOR = 0x330066;
 	else
-		COLOR = 0xFFFFFF;
+		COLOR = 0x000066;
 }
 
 void	write_data_pixel(t_struct *data)
@@ -45,6 +45,7 @@ void	write_data_pixel(t_struct *data)
 	unsigned int	b;
 
 	define_color(data);
+	COLOR += COLORE;
 	b = (COLOR & 0xFF0000) >> 16;
 	g = (COLOR & 0xFF00) >> 8;
 	r = (COLOR & 0xFF);
@@ -56,15 +57,15 @@ void	write_data_pixel(t_struct *data)
 	}
 }
 
-int		ft_fdf(t_struct *data, char *av)
+int		fractol(t_struct *data)
 {
-	if (same_str(av, "Mandelbrot"))
+	 if (!ft_strcmp(NAME, "Mandelbrot"))
 		draw_mandelbrot(data);
-//	else if (same_str(av, "Pyramide"))
-//		draw_pyramide(data);
-	else if (same_str(av, "Julia"))
+	else if (!ft_strcmp(NAME, "Brain"))
+		draw_brain(data);
+	else if (!ft_strcmp(NAME, "Julia"))
 		draw_julia(data);
 	mlx_put_image_to_window(MLX, WIN, IMG, 0, 0);
 	write_screen(data);
-	return (0);
+	return (1);
 }

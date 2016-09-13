@@ -6,14 +6,39 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 18:54:21 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/08 20:19:27 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/13 21:08:32 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+static void		moove_map(int keycode, t_struct *data)
+{
+	if (keycode == 126 || keycode == 125)
+		H_PIC += keycode == 126 ? -30 : 30;
+	if (keycode == 123 || keycode == 124)
+		W_PIC += keycode == 124 ? 30 : -30;
+	if (keycode == 67 || keycode == 75)
+	{
+		if (A - 0.4 > 0.4 && keycode == 75)
+			A += -0.4;
+		else if (keycode == 67)
+			A += 0.4;
+	}
+}
+
+static int		check_name (char *av)
+{
+	if (!ft_strcmp(av, "Julia") || !ft_strcmp(av, "Brain") ||
+		!ft_strcmp(av, "Mandelbrot") || !ft_strcmp(av, "Pyramide"))
+		return (1);
+	return (0);
+}
+
 static void		free_all(t_struct *data)
 {
+	free(NAME);
+	NAME = NULL;
 	free(data);
 	data = NULL;
 }
@@ -21,25 +46,26 @@ static void		free_all(t_struct *data)
 static void		change_color(int keycode, t_struct *data)
 {
 	if (keycode == 18)
-		COLOR = 0xFF0000;
+		COLORE = 0xFF0000;
 	if (keycode == 19)
-		COLOR = 0x00FF00;
+		COLORE = 0x00FF00;
 	if (keycode == 20)
-		COLOR = 0x0000FF;
+		COLORE = 0x0000FF;
 	if (keycode == 21)
-		COLOR = 0xFFFF00;
+		COLORE = 0xFFFF00;
 	if (keycode == 23)
-		COLOR = 0x00FFFF;
+		COLORE = 0x00FFFF;
 	if (keycode == 22)
-		COLOR = 0xFF00FF;
+		COLORE = 0xFF00FF;
 	if (keycode == 26)
-		COLOR = 0xCccccc;
+		COLORE = 0xCccccc + 0xFF0000;
 }
 
 static int		key_func(int keycode, t_struct *data)
 {
 	ft_new_screen(data);
 	change_color(keycode, data);
+	moove_map(keycode, data);
 	if (keycode == 53)
 	{
 		free_all(data);
@@ -47,10 +73,10 @@ static int		key_func(int keycode, t_struct *data)
 	}
 	if (keycode == 116 || keycode == 121)
 	{
-		if (ZOOM - 2 > 0 && keycode == 121)
-			ZOOM -= 2;
-		else if (keycode == 116)
-			ZOOM += 2;
+		if (ZOOM + 0.1 > 0 && keycode == 116)
+			ZOOM -= 0.1;
+		else if (keycode == 121)
+			ZOOM += 0.1;
 	}
 	if (keycode == 36)
 		ft_init_pos(data);
@@ -66,17 +92,16 @@ int				main(int ac, char **av)
 		ft_putstr("Usage : ./fdf <fractal name>\n");
 		exit(EXIT_FAILURE);
 	}
-	if (same_str(av[1], "Julia") || same_str(av[1], "Pyramide") ||
-			same_str(av[1], "Mandelbrot"))
+	if (check_name(av[1]))
 	{
 		data = ft_init_struct(av[1]);
-		ft_fdf(data, av[1]);
+		fractol(data);
+		mlx_loop_hook(MLX, fractol, data);
 		mlx_key_hook(WIN, key_func, data);
-		mlx_loop_hook(MLX, ft_fdf, data);
 		mlx_loop(MLX);
 		free_all(data);
-		return (0);
 	}
-	ft_putstr("Fractal :\nJulia\nPyramide\nMandelbrot\n");
+	else
+		ft_putstr("Fractal :\nJulia\nPyramide\nMandelbrot\nBrain\n");
 	return (0);
 }

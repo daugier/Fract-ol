@@ -6,7 +6,7 @@
 #    By: daugier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/06 16:08:31 by daugier           #+#    #+#              #
-#    Updated: 2016/09/08 20:36:19 by daugier          ###   ########.fr        #
+#    Updated: 2016/09/13 19:56:15 by daugier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,12 @@ CC = gcc -I./include
 MLX = -lmlx -framework OpenGL -framework AppKit 
 
 SRCS = 	srcs/main.c \
-		srcs/check.c \
 		srcs/init_data.c \
-		srcs/fdf.c \
+		srcs/fractol.c \
 		srcs/windows_param.c \
 		srcs/mandelbrot.c \
 		srcs/julia.c \
+		srcs/brain.c \
 
 OBJS = $(SRCS:.c=.o)
 

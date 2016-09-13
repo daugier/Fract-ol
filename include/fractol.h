@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:10:22 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/08 20:45:29 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/13 20:51:11 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@
 # include "mlx.h"
 # include "../libft/includes/libft.h"
 
+# define A data->a
+# define H_PIC data->h_pic
+# define W_PIC data->w_pic
+# define NAME data->name
+# define COLORE data->colore
 # define ITER data->iter
 # define MAXI 100
 # define X data->x
@@ -43,6 +48,11 @@
 
 typedef struct	s_struct
 {
+	double				a;
+	int					h_pic;
+	int					w_pic;
+	char				*name;
+	int					colore;
 	int					iter;
 	int					x;
 	int					iteration;
@@ -58,19 +68,19 @@ typedef struct	s_struct
 	int					bit_per_pixel;
 	int					width;
 	int					height;
-	int					zoom;
+	double					zoom;
 }				t_struct;
 
+void				draw_brain(t_struct *data);
 void				draw_pyramide(t_struct *data);
 void				draw_julia(t_struct *data);
 void				define_color(t_struct *data);
 void				draw_mandelbrot(t_struct *data);
-int					same_str(char *av, char *s);
 void				write_screen(t_struct *data);
 void				write_data_pixel(t_struct *data);
 void				ft_init_pos(t_struct *data);
 t_struct			*ft_init_struct(char *av);
-int					ft_fdf(t_struct *data, char *av);
+int					fractol(t_struct *data);
 void				ft_new_screen(t_struct *data);
 
 #endif

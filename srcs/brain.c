@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   brain.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/08 15:35:51 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/08 15:56:17 by daugier          ###   ########.fr       */
+/*   Created: 2016/09/09 15:47:29 by daugier           #+#    #+#             */
+/*   Updated: 2016/09/09 16:40:52 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		same_str(char *av, char *s)
+void		draw_brain(t_struct *data)
 {
-	int	i;
+	double	a;
+	int		n;
+	int		k;
 
-	i = -1;
-	while (s[++i])
+X = 1;
+	a = 1;
+	while (k < n)
 	{
-		if (av[i] != s[i])
-			return (0);
+		X = 20 * X;
+		a = a / 3;
+		Y = X * a * 3;
+		write_data_pixel(data);
 	}
-	return (1);
 }

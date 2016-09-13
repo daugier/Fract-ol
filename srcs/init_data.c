@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:15:06 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/08 20:45:53 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/13 20:44:06 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 void			ft_init_pos(t_struct *data)
 {
 	ZOOM = 1;
+	COLORE = 0;
+	H_PIC = 0;
+	W_PIC = 0;
 }
 
 t_struct		*ft_init_struct(char *av)
@@ -24,6 +27,7 @@ t_struct		*ft_init_struct(char *av)
 	if (!(data = (t_struct *)malloc(sizeof(t_struct))))
 		exit(EXIT_FAILURE);
 	ft_init_pos(data);
+	NAME = ft_strdup(av);
 	BPP = 24;
 	ENDIAN = 1;
 	WIDTH += 1200;
