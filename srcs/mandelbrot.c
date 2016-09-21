@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 18:21:11 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/13 20:48:39 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 01:59:50 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void		draw_mandelbrot(t_struct *data)
 {
 	double x;
 	double y;
-	double c_re;
-	double c_im;
 	double x_new;
 
 	X = -1;
@@ -26,14 +24,14 @@ void		draw_mandelbrot(t_struct *data)
 		Y = -1;
 		while (++Y < WIDTH && (ITER = -1))
 		{
-			c_re = (Y - (WIDTH + H_PIC) / 2.0) * (4.0 / (WIDTH)) * ZOOM;
-			c_im = (X - (HEIGHT + W_PIC) / 2.0) * (4.0 / WIDTH) * ZOOM;
+			RE = ((Y - POS_Y - ((WIDTH + H) / 2.0)) * ((4.0 / WIDTH)) / ZOOM);
+			IM = ((X - POS_X - ((HEIGHT + W) / 2.0)) * ((4.0 / WIDTH)) / ZOOM);
 			y = 0;
 			x = 0;
 			while (x * x + y * y <= 4 && ++ITER < MAXI)
 			{
-				x_new = x * x - y * y + c_re;
-				y = 2 * x * y + c_im;
+				x_new = x * x - y * y + RE;
+				y = 2 * x * y + IM;
 				x = x_new;
 			}
 			write_data_pixel(data);

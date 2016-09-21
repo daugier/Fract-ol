@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:15:06 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/13 20:44:06 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 01:44:05 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,15 @@ void			ft_init_pos(t_struct *data)
 {
 	ZOOM = 1;
 	COLORE = 0;
-	H_PIC = 0;
-	W_PIC = 0;
+	H = 0;
+	W = 0;
+	POS_X = 0;
+	POS_Y = 0;
+	MAXI = 100;
+	L = 0;
+	X = 0;
+	Y = 0;
+	M = 0;
 }
 
 t_struct		*ft_init_struct(char *av)
@@ -30,8 +37,8 @@ t_struct		*ft_init_struct(char *av)
 	NAME = ft_strdup(av);
 	BPP = 24;
 	ENDIAN = 1;
-	WIDTH += 1200;
-	HEIGHT += 1200;
+	WIDTH += 900;
+	HEIGHT += 900;
 	SIZE_LINE = WIDTH * (BPP / 8);
 	MLX = mlx_init();
 	WIN = mlx_new_window(MLX, WIDTH, HEIGHT, av);

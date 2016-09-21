@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 17:28:31 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/13 21:08:17 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 02:13:21 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	define_color(t_struct *data)
 {
-	if (ITER > 0 && ITER < 10)
+	if ((ITER > 0 && ITER < 10))
 		COLOR = 0x000000;
 	else if (ITER > 10 && ITER < 20)
 		COLOR = 0x000033;
@@ -59,13 +59,15 @@ void	write_data_pixel(t_struct *data)
 
 int		fractol(t_struct *data)
 {
-	 if (!ft_strcmp(NAME, "Mandelbrot"))
+	if (!ft_strcmp(NAME, "Mandelbrot"))
 		draw_mandelbrot(data);
-	else if (!ft_strcmp(NAME, "Brain"))
-		draw_brain(data);
+	else if (!ft_strcmp(NAME, "Dodo"))
+		draw_dodo(data);
 	else if (!ft_strcmp(NAME, "Julia"))
 		draw_julia(data);
-	mlx_put_image_to_window(MLX, WIN, IMG, 0, 0);
+	else if (!ft_strcmp(NAME, "Sierpinski"))
+		draw_sierpinski(data);
+	mlx_put_image_to_window(MLX, WIN, IMG, 0, 50);
 	write_screen(data);
 	return (1);
 }

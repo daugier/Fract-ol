@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:10:22 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/13 20:51:11 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 01:43:59 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,31 @@
 # define __FDF_H
 
 # include <mlx.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
 # include <unistd.h>
-# include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
 # include "mlx.h"
-# include "../libft/includes/libft.h"
+# include <OpenCL/opencl.h>
+# include </System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/X.h>
+# include "../libs/libft/includes/libft.h"
 
+# define M data->m
+# define H data->h
+# define W data->w
+# define Y_MOOVE data->y_moove
+# define X_MOOVE data->x_moove
+# define L data->l
+# define IM data->c_im
+# define RE data->c_re
+# define POS_X data->pos_x
+# define POS_Y data->pos_y
 # define A data->a
 # define H_PIC data->h_pic
 # define W_PIC data->w_pic
 # define NAME data->name
 # define COLORE data->colore
 # define ITER data->iter
-# define MAXI 100
+# define MAXI data->imax
 # define X data->x
 # define Y data->y
 # define ZOOM data->zoom
@@ -48,6 +56,17 @@
 
 typedef struct	s_struct
 {
+	int					m;
+	int					h;
+	int					w;
+	int					y_moove;
+	long double			l;
+	int					x_moove;
+	double				c_re;
+	double				c_im;
+	int					imax;
+	double				pos_x;
+	double				pos_y;
 	double				a;
 	int					h_pic;
 	int					w_pic;
@@ -68,11 +87,16 @@ typedef struct	s_struct
 	int					bit_per_pixel;
 	int					width;
 	int					height;
-	double					zoom;
+	long double			zoom;
 }				t_struct;
 
-void				draw_brain(t_struct *data);
-void				draw_pyramide(t_struct *data);
+int					mouse_motion(int x, int y, t_struct *data);
+void				free_all(t_struct *data);
+int					key_func(int keycode, t_struct *data);
+int					mouse_func(int button, int x, int y, t_struct *data);
+void				change_color(int keycode, t_struct *data);
+void				draw_dodo(t_struct *data);
+void				draw_sierpinski(t_struct *data);
 void				draw_julia(t_struct *data);
 void				define_color(t_struct *data);
 void				draw_mandelbrot(t_struct *data);

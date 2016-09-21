@@ -1,17 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pyramide.c                                         :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/08 20:20:01 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/08 20:37:30 by daugier          ###   ########.fr       */
+/*   Created: 2016/05/13 17:14:35 by daugier           #+#    #+#             */
+/*   Updated: 2016/05/24 20:29:44 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-void		draw_pyramide(t_struct *data)
+void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
+	t_list	*lst;
+
+	while (*alst)
+	{
+		lst = *alst;
+		*alst = (*alst)->next;
+		del((lst)->content, (*lst).content_size);
+		free(lst);
+		lst = NULL;
+	}
 }
