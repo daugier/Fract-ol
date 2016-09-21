@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/20 20:42:39 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 02:23:46 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 15:45:25 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void		draw_dodo(t_struct *data)
 		Y = -1;
 		while (++Y < WIDTH && (ITER = -1))
 		{
-			RE = (X - POS_X - ((WIDTH + W) / 2.0)) * ((4.0 / WIDTH)) / ZOOM;
-			IM = (Y - POS_Y - ((HEIGHT + H) / 2.0)) * ((4.0 / WIDTH)) / ZOOM;
+			RE = (X - POS_X - ((WIDTH + W) / 2.0)) * ((5.0 / WIDTH)) / ZOOM;
+			IM = (Y - POS_Y - ((HEIGHT + H) / 2.0)) * ((5.0 / WIDTH)) / ZOOM;
 			y = 0;
 			x = 0;
 			while (x * x + y * y <= 4 && ++ITER < MAXI)

@@ -6,14 +6,13 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 18:54:21 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 01:21:10 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 15:29:44 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-
-static int		check_name (char *av)
+static int		check_name(char *av)
 {
 	if (!ft_strcmp(av, "Julia") || !ft_strcmp(av, "Dodo") ||
 		!ft_strcmp(av, "Mandelbrot") || !ft_strcmp(av, "Sierpinski"))

@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:10:22 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 01:43:59 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 15:52:42 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@
 # include </System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/X.h>
 # include "../libs/libft/includes/libft.h"
 
-# define M data->m
+# define Y_MOOVE data->y_moove
 # define H data->h
 # define W data->w
-# define Y_MOOVE data->y_moove
 # define X_MOOVE data->x_moove
 # define L data->l
 # define IM data->c_im
@@ -56,10 +55,9 @@
 
 typedef struct	s_struct
 {
-	int					m;
+	int					y_moove;
 	int					h;
 	int					w;
-	int					y_moove;
 	long double			l;
 	int					x_moove;
 	double				c_re;

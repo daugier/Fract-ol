@@ -6,13 +6,19 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 18:21:11 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 01:59:50 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 16:19:01 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		draw_mandelbrot(t_struct *data)
+static void		calcul_re_im(t_struct *data)
+{
+	RE = ((Y - POS_Y - ((WIDTH + H + L) / 2.0)) * (4.0 / WIDTH + L) / ZOOM);
+	IM = ((X - POS_X - ((HEIGHT + W + L) / 2.0)) * (4.0 / WIDTH + L) / ZOOM);
+}
+
+void			draw_mandelbrot(t_struct *data)
 {
 	double x;
 	double y;
@@ -24,8 +30,7 @@ void		draw_mandelbrot(t_struct *data)
 		Y = -1;
 		while (++Y < WIDTH && (ITER = -1))
 		{
-			RE = ((Y - POS_Y - ((WIDTH + H) / 2.0)) * ((4.0 / WIDTH)) / ZOOM);
-			IM = ((X - POS_X - ((HEIGHT + W) / 2.0)) * ((4.0 / WIDTH)) / ZOOM);
+			calcul_re_im(data);
 			y = 0;
 			x = 0;
 			while (x * x + y * y <= 4 && ++ITER < MAXI)

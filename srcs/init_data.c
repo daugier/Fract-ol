@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:15:06 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 01:44:05 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 15:52:39 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ void			ft_init_pos(t_struct *data)
 	POS_Y = 0;
 	MAXI = 100;
 	L = 0;
-	X = 0;
-	Y = 0;
-	M = 0;
+	X_MOOVE = 0;
+	Y_MOOVE = 0;
 }
 
 t_struct		*ft_init_struct(char *av)

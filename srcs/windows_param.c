@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:12:43 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 02:15:02 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/21 15:30:31 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void		white_screen(t_struct *data)
 		y = -1;
 		while (++y < 50)
 		{
-		  mlx_pixel_put(MLX, WIN, x, y, 0xFFA500);
+			mlx_pixel_put(MLX, WIN, x, y, 0xFFA500);
 		}
 	}
 }
