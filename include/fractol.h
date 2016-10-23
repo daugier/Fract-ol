@@ -6,12 +6,12 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:10:22 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 15:52:42 by daugier          ###   ########.fr       */
+/*   Updated: 2016/10/23 03:06:13 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FDF_H
-# define __FDF_H
+#ifndef __FRACTOL_H
+# define __FRACTOL_H
 
 # include <mlx.h>
 # include <unistd.h>
@@ -22,6 +22,13 @@
 # include </System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/X.h>
 # include "../libs/libft/includes/libft.h"
 
+# define RED 0xFF0000
+# define DARKKHAKI 0xB8B868
+# define GREEN 0x00FF00
+# define ORANGE 0xFF6600
+# define GRAY 0x808080
+# define GOLDENROD 0xFFD800
+# define MAROON 0x800000
 # define Y_MOOVE data->y_moove
 # define H data->h
 # define W data->w
@@ -52,9 +59,13 @@
 # define DATA data->data
 # define HEIGHT data->height
 # define WIDTH data->width
+# define NEW_RE data->new_re
+# define NEW_IM data->new_im
 
-typedef struct	s_struct
+typedef struct		s_struct
 {
+	double				new_im;
+	double				new_re;
 	int					y_moove;
 	int					h;
 	int					w;
@@ -86,7 +97,7 @@ typedef struct	s_struct
 	int					width;
 	int					height;
 	long double			zoom;
-}				t_struct;
+}					t_struct;
 
 int					mouse_motion(int x, int y, t_struct *data);
 void				free_all(t_struct *data);

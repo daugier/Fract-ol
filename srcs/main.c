@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 18:54:21 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 15:29:44 by daugier          ###   ########.fr       */
+/*   Updated: 2016/10/19 16:32:28 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ static int		check_name(char *av)
 
 void			free_all(t_struct *data)
 {
+	mlx_destroy_image(MLX, IMG);
+	MLX = NULL;
+	WIN = NULL;
+	IMG = NULL;
 	free(NAME);
 	NAME = NULL;
 	free(data);
@@ -34,7 +38,7 @@ int				main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		ft_putstr("Usage : ./fdf <fractal name>\n");
+		ft_putstr("Usage : ./fractol <fractal name>\n");
 		exit(EXIT_FAILURE);
 	}
 	if (check_name(av[1]))

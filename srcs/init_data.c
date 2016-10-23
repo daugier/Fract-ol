@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stock_map.c                                        :+:      :+:    :+:   */
+/*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/06 16:15:06 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 15:52:39 by daugier          ###   ########.fr       */
+/*   Created: 2016/09/27 14:33:16 by daugier           #+#    #+#             */
+/*   Updated: 2016/10/23 02:40:38 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void			ft_init_pos(t_struct *data)
 {
 	ZOOM = 1;
-	COLORE = 0;
+	COLORE = RED;
 	H = 0;
 	W = 0;
 	POS_X = 0;
@@ -40,7 +40,7 @@ t_struct		*ft_init_struct(char *av)
 	HEIGHT += 900;
 	SIZE_LINE = WIDTH * (BPP / 8);
 	MLX = mlx_init();
-	WIN = mlx_new_window(MLX, WIDTH, HEIGHT, av);
+	WIN = mlx_new_window(MLX, WIDTH, HEIGHT, "Fractal");
 	IMG = mlx_new_image(MLX, WIDTH, HEIGHT);
 	DATA = mlx_get_data_addr(IMG, &BPP, &SIZE_LINE, &ENDIAN);
 	return (data);

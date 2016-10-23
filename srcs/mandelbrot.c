@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 18:21:11 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 16:19:01 by daugier          ###   ########.fr       */
+/*   Updated: 2016/10/19 16:33:51 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void		calcul_re_im(t_struct *data)
 {
-	RE = ((Y - POS_Y - ((WIDTH + H + L) / 2.0)) * (4.0 / WIDTH + L) / ZOOM);
-	IM = ((X - POS_X - ((HEIGHT + W + L) / 2.0)) * (4.0 / WIDTH + L) / ZOOM);
+	RE = ((Y - POS_Y - ((WIDTH + H) / 2.0)) * (4.0 / WIDTH) / ZOOM);
+	IM = ((X - POS_X - ((HEIGHT + W) / 2.0)) * (4.0 / WIDTH) / ZOOM);
 }
 
 void			draw_mandelbrot(t_struct *data)

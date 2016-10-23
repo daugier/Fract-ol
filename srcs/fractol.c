@@ -6,37 +6,11 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 17:28:31 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 16:11:18 by daugier          ###   ########.fr       */
+/*   Updated: 2016/10/23 02:15:48 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	define_color(t_struct *data)
-{
-	if ((ITER > 0 && ITER < 10))
-		COLOR = 0xC2C4A8;
-	else if (ITER > 10 && ITER < 20)
-		COLOR = 0x808080;
-	else if (ITER > 20 && ITER < 30)
-		COLOR = 0x888888;
-	else if (ITER > 30 && ITER < 40)
-		COLOR = 0x909090;
-	else if (ITER > 40 && ITER < 50)
-		COLOR = 0x989898;
-	else if (ITER > 50 && ITER < 60)
-		COLOR = 0xA0A0A0;
-	else if (ITER > 60 && ITER < 70)
-		COLOR = 0xA8A8A8;
-	else if (ITER > 70 && ITER < 80)
-		COLOR = 0xB0B0B0;
-	else if (ITER > 80 && ITER < 90)
-		COLOR = 0xB8B8B8;
-	else if (ITER > 90 && ITER < 100)
-		COLOR = 0xC0C0C0;
-	else
-		COLOR = 0xFFFFFF;
-}
 
 void	write_data_pixel(t_struct *data)
 {
@@ -44,8 +18,10 @@ void	write_data_pixel(t_struct *data)
 	unsigned int	g;
 	unsigned int	b;
 
-	define_color(data);
-	COLOR += COLORE;
+	if (ITER == 0)
+		COLOR = COLORE / 1;
+	else
+		COLOR = COLORE / ITER * 10;
 	b = (COLOR & 0xFF0000) >> 16;
 	g = (COLOR & 0xFF00) >> 8;
 	r = (COLOR & 0xFF);

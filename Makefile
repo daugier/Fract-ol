@@ -6,7 +6,7 @@
 #    By: daugier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/06 16:08:31 by daugier           #+#    #+#              #
-#    Updated: 2016/09/21 16:34:43 by daugier          ###   ########.fr        #
+#    Updated: 2016/10/23 03:08:47 by daugier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ $(NAME): $(OBJS)
 	@echo "\033[34m[OK]\033[36m MINILIBIX_MACOS COMPILED"
 	@$(CC) $(MLX) -o $(NAME) $(OBJS) $(LIB) $(HEADER)
 	@echo "\033[34m[OK]\033[36m FRACT'OL COMPILED"
-	@echo "\033[34m[OK]\033[36m FRACT'OL CREATED, LET'S HAVE FUN GUYS !"
+	@echo "\033[32m[OK]\033[32m FRACT'OL CREATED, LET'S HAVE FUN GUYS !"
 
 all: $(NAME)
 
@@ -58,7 +58,7 @@ clean:
 	@$(RM) $(OBJS)
 	@make clean -C libs/libft/
 	@make clean -C libs/minilibx_macos/
-	@echo "\033[31m[OK]\033[31m FRACT'OL FILES C DELETED"
+	@echo "\033[31m[OK]\033[31m FRACT'OL FILES O DELETED"
 
 fclean: clean
 	@$(RM) $(NAME)

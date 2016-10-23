@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 00:05:24 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 16:11:45 by daugier          ###   ########.fr       */
+/*   Updated: 2016/10/23 02:40:37 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int			mouse_func(int button, int x, int y, t_struct *data)
 	if (button == 4 && ZOOM / 1.5 > 0)
 	{
 		if (MAXI > 100)
-			MAXI -= 3;
+			MAXI -= 5;
 		ZOOM /= 1.5;
 		POS_X = (WIDTH / 2) - x + POS_X / 1.5;
 		POS_Y = (HEIGHT / 2) - y + POS_Y / 1.5;
 	}
 	if (button == 5 && ZOOM * 1.5 <= 1234648375)
 	{
-		MAXI += 3;
+		MAXI += 5;
 		ZOOM *= 1.5;
 		POS_X = (WIDTH / 2) - x + POS_X * 1.5;
 		POS_Y = (HEIGHT / 2) - y + POS_Y * 1.5;
@@ -35,23 +35,28 @@ int			mouse_func(int button, int x, int y, t_struct *data)
 void		change_color(int keycode, t_struct *data)
 {
 	if (keycode == 18)
-		COLORE = 0x330000;
+		COLORE = RED;
 	if (keycode == 19)
-		COLORE = 0x660000;
+		COLORE = DARKKHAKI;
 	if (keycode == 20)
-		COLORE = 0x0000FF;
+		COLORE = GREEN;
 	if (keycode == 21)
-		COLORE = 0xC0C0C0;
+		COLORE = ORANGE;
 	if (keycode == 23)
-		COLORE = 0x00FFFF;
+		COLORE = GRAY;
 	if (keycode == 22)
-		COLORE = 0xFF00FF;
+		COLORE = GOLDENROD;
 	if (keycode == 26)
-		COLORE = 0x000033;
+		COLORE = MAROON;
 }
 
 static int	key_func_bis(int keycode, t_struct *data)
 {
+	if (keycode > 82 && keycode < 87)
+	{
+		free(NAME);
+		NAME = NULL;
+	}
 	if (keycode == 83 || keycode == 84)
 		NAME = ft_strdup("Mandelbrot");
 	if (keycode == 84)
@@ -101,13 +106,8 @@ int			mouse_motion(int x, int y, t_struct *data)
 {
 	if (X_MOOVE)
 	{
-		L = (((long double)x - WIDTH / 4) / 10000);
-		y = 0;
-	}
-	if (Y_MOOVE)
-	{
-		L = (((long double)y - WIDTH / 4) / 10000);
-		x = 0;
+		RE = (float)(x + 550 - WIDTH) / 200;
+		IM = (float)(y + 450 - HEIGHT) / 300;
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:12:43 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/21 15:30:31 by daugier          ###   ########.fr       */
+/*   Updated: 2016/10/23 02:40:38 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,15 @@ static void		write_color_screen(t_struct *data)
 
 static void		write_data_screen(t_struct *data)
 {
+	char *s;
+
+	s = ft_itoa(ZOOM);
 	mlx_string_put(MLX, WIN, 15, 25, 0x6600FF, "zoom = ");
-	mlx_string_put(MLX, WIN, 85, 25, 0x6600FF, ft_itoa(ZOOM));
+	mlx_string_put(MLX, WIN, 85, 25, 0x6600FF, s);
+	mlx_string_put(MLX, WIN, 680, 25, 0x6600FF, "Fractal = ");
+	mlx_string_put(MLX, WIN, 780, 25, 0x6600FF, NAME);
+	free(s);
+	s = NULL;
 }
 
 void			write_screen(t_struct *data)
