@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 00:05:24 by daugier           #+#    #+#             */
-/*   Updated: 2016/10/23 02:40:37 by daugier          ###   ########.fr       */
+/*   Updated: 2016/10/25 21:53:57 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int			mouse_func(int button, int x, int y, t_struct *data)
 {
-	if (button == 4 && ZOOM / 1.5 > 0)
+	if (button == 4 && ZOOM / 1.1 > 0)
 	{
 		if (MAXI > 100)
 			MAXI -= 5;
-		ZOOM /= 1.5;
-		POS_X = (WIDTH / 2) - x + POS_X / 1.5;
-		POS_Y = (HEIGHT / 2) - y + POS_Y / 1.5;
+		ZOOM /= 1.1;
+		POS_X = (WIDTH / 2) - x + POS_X / 1.1;
+		POS_Y = (HEIGHT / 2) - y + POS_Y / 1.1;
 	}
-	if (button == 5 && ZOOM * 1.5 <= 1234648375)
+	if (button == 5 && ZOOM * 1.1 <= 1234648375)
 	{
 		MAXI += 5;
-		ZOOM *= 1.5;
-		POS_X = (WIDTH / 2) - x + POS_X * 1.5;
-		POS_Y = (HEIGHT / 2) - y + POS_Y * 1.5;
+		ZOOM *= 1.1;
+		POS_X = (WIDTH / 2) - x + POS_X * 1.1;
+		POS_Y = (HEIGHT / 2) - y + POS_Y * 1.1;
 	}
 	return (1);
 }
@@ -65,15 +65,15 @@ static int	key_func_bis(int keycode, t_struct *data)
 		NAME = ft_strdup("Sierpinski");
 	if (keycode == 86)
 		NAME = ft_strdup("Dodo");
-	if (keycode == 116 && ZOOM * 1.5 <= 1234648375)
+	if (keycode == 116 && ZOOM * 1.1 <= 1234648375)
 	{
 		MAXI += 3;
-		ZOOM *= 1.5;
+		ZOOM *= 1.1;
 	}
-	if (keycode == 121 && ZOOM / 1.5 > 0)
+	if (keycode == 121 && ZOOM / 1.1 > 0)
 	{
 		MAXI -= 3;
-		ZOOM /= 1.5;
+		ZOOM /= 1.1;
 	}
 	return (1);
 }
@@ -106,8 +106,8 @@ int			mouse_motion(int x, int y, t_struct *data)
 {
 	if (X_MOOVE)
 	{
-		RE = (float)(x + 550 - WIDTH) / 200;
-		IM = (float)(y + 450 - HEIGHT) / 300;
+		RE = (float)(x + 550 - WIDTH) / 400;
+		IM = (float)(y + 450 - HEIGHT) / 600;
 	}
 	return (1);
 }
