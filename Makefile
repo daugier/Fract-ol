@@ -6,7 +6,7 @@
 #    By: daugier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/06 16:08:31 by daugier           #+#    #+#              #
-#    Updated: 2016/10/23 03:08:47 by daugier          ###   ########.fr        #
+#    Updated: 2016/11/02 09:51:40 by daugier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,15 +35,6 @@ SRCS = 	srcs/main.c \
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
-	@echo "\x1b[33m[F][F][F][F]  [F][F][F][F]  [F][F][F][F]  [F][F][F][F]  [F][F][F][F][F]  [F][F]      [F][F][F][F]  [F]"
-	@echo "\033[33m[R]           [R]      [R]  [R]      [R]  [R]                 [R]           [R][R]   [R]      [R]  [R]"
-	@echo "\033[33m[A]           [A]      [A]  [A]      [A]  [A]                 [A]               [A]  [A]      [A]  [A]"
-	@echo "\033[33m[C][C][C]     [C][C][C][c]  [C]      [C]  [C]                 [C]              [C]   [C]      [C]  [C]"
-	@echo "\033[33m[T]           [T][T]        [T][T][T][T]  [T]                 [T]             [T]    [T]      [T]  [T]"
-	@echo "\033[33m[']           [']  [']      [']      [']  [']                 [']                    [']      [']  [']"
-	@echo "\033[33m[O]           [O]    [O]    [O]      [O]  [O]                 [O]                    [O]      [O]  [O]"
-	@echo "\033[33m[L]           [L]      [L]  [L]      [L]  [L][L][L][L]        [L]                    [L][L][L][L]  [L][L][L][L] "
-	@echo "\033[35m                                                                                                                 By Augier Dorian"
 	@make -C libs/libft/
 	@echo "\033[34m[OK]\033[36m LIBFT COMPILED"
 	@make -C libs/minilibx_macos/

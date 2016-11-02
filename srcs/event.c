@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 00:05:24 by daugier           #+#    #+#             */
-/*   Updated: 2016/10/25 21:53:57 by daugier          ###   ########.fr       */
+/*   Updated: 2016/11/02 09:48:12 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int			mouse_func(int button, int x, int y, t_struct *data)
 		if (MAXI > 100)
 			MAXI -= 5;
 		ZOOM /= 1.1;
-		POS_X = (WIDTH / 2) - x + POS_X / 1.1;
+		POS_X = (WIDTH / 2) - x + 50 + POS_X / 1.1;
 		POS_Y = (HEIGHT / 2) - y + POS_Y / 1.1;
 	}
 	if (button == 5 && ZOOM * 1.1 <= 1234648375)
 	{
 		MAXI += 5;
 		ZOOM *= 1.1;
-		POS_X = (WIDTH / 2) - x + POS_X * 1.1;
+		POS_X = (WIDTH / 2) - x + 50 + POS_X * 1.1;
 		POS_Y = (HEIGHT / 2) - y + POS_Y * 1.1;
 	}
 	return (1);
