@@ -6,7 +6,7 @@
 #    By: daugier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/06 16:08:31 by daugier           #+#    #+#              #
-#    Updated: 2016/11/02 09:51:40 by daugier          ###   ########.fr        #
+#    Updated: 2017/01/31 18:33:06 by daugier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,26 +35,20 @@ SRCS = 	srcs/main.c \
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
-	@make -C libs/libft/
-	@echo "\033[34m[OK]\033[36m LIBFT COMPILED"
-	@make -C libs/minilibx_macos/
-	@echo "\033[34m[OK]\033[36m MINILIBIX_MACOS COMPILED"
-	@$(CC) $(MLX) -o $(NAME) $(OBJS) $(LIB) $(HEADER)
-	@echo "\033[34m[OK]\033[36m FRACT'OL COMPILED"
-	@echo "\033[32m[OK]\033[32m FRACT'OL CREATED, LET'S HAVE FUN GUYS !"
+	make -C libs/libft/
+	make -C libs/minilibx_macos/
+	$(CC) $(MLX) -o $(NAME) $(OBJS) $(LIB) $(HEADER)
 
 all: $(NAME)
 
 clean:
-	@$(RM) $(OBJS)
-	@make clean -C libs/libft/
-	@make clean -C libs/minilibx_macos/
-	@echo "\033[31m[OK]\033[31m FRACT'OL FILES O DELETED"
+	$(RM) $(OBJS)
+	make clean -C libs/libft/
+	make clean -C libs/minilibx_macos/
 
 fclean: clean
-	@$(RM) $(NAME)
-	@make fclean -C libs/libft/
-	@make fclean -C libs/minilibx_macos/
-	@echo "\033[31m[OK]\033[31m FRACT'OL DELETED"
+	$(RM) $(NAME)
+	make fclean -C libs/libft/
+	make fclean -C libs/minilibx_macos/
 
 re: fclean all

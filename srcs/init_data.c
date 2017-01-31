@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 14:33:16 by daugier           #+#    #+#             */
-/*   Updated: 2016/10/23 02:40:38 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 17:54:37 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ t_struct		*ft_init_struct(char *av)
 	NAME = ft_strdup(av);
 	BPP = 24;
 	ENDIAN = 1;
-	WIDTH += 900;
-	HEIGHT += 900;
+	WIDTH = 900;
+	HEIGHT = 900;
 	SIZE_LINE = WIDTH * (BPP / 8);
 	MLX = mlx_init();
-	WIN = mlx_new_window(MLX, WIDTH, HEIGHT, "Fractal");
+	WIN = mlx_new_window(MLX, WIDTH, HEIGHT, "Fract-ol");
 	IMG = mlx_new_image(MLX, WIDTH, HEIGHT);
 	DATA = mlx_get_data_addr(IMG, &BPP, &SIZE_LINE, &ENDIAN);
 	return (data);

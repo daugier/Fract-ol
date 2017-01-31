@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 17:28:31 by daugier           #+#    #+#             */
-/*   Updated: 2016/10/27 15:33:17 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 18:05:59 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		fractol(t_struct *data)
 		draw_julia(data);
 	else if (!ft_strcmp(NAME, "Sierpinski"))
 		draw_sierpinski(data);
-	mlx_put_image_to_window(MLX, WIN, IMG, 0, 50);
+	mlx_put_image_to_window(MLX, WIN, IMG, 0, 0);
 	write_screen(data);
 	return (1);
 }

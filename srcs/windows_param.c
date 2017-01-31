@@ -6,27 +6,11 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:12:43 by daugier           #+#    #+#             */
-/*   Updated: 2016/11/02 09:50:08 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 18:32:10 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-static void		white_screen(t_struct *data)
-{
-	int	x;
-	int	y;
-
-	x = -1;
-	while (++x < WIDTH)
-	{
-		y = -1;
-		while (++y < 50)
-		{
-			mlx_pixel_put(MLX, WIN, x, y, 0xFFA500);
-		}
-	}
-}
 
 void			ft_new_screen(t_struct *data)
 {
@@ -35,36 +19,45 @@ void			ft_new_screen(t_struct *data)
 	DATA = mlx_get_data_addr(IMG, &BPP, &SIZE_LINE, &ENDIAN);
 }
 
-static void		write_color_screen(t_struct *data)
+static void		write_info_screen(t_struct *data)
 {
-	mlx_string_put(MLX, WIN, 15, 5, 0x330000, "1");
-	mlx_string_put(MLX, WIN, 40, 5, 0x660000, "2");
-	mlx_string_put(MLX, WIN, 65, 5, 0x0000FF, "3");
-	mlx_string_put(MLX, WIN, 90, 5, 0xC0C0C0, "4");
-	mlx_string_put(MLX, WIN, 115, 5, 0x00FFFF, "5");
-	mlx_string_put(MLX, WIN, 140, 5, 0xFFF00FF, "6");
-	mlx_string_put(MLX, WIN, 165, 5, 0x000033, "7");
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 155, 5, 0x00FF00,
+		"Touches disponibles");
+	mlx_string_put(MLX, WIN, 20, 25, 0x0000CD, "J   -> Julia");
+	mlx_string_put(MLX, WIN, 20, 40, 0x0000CD, "M   -> Mandelbrot");
+	mlx_string_put(MLX, WIN, 20, 55, 0x0000CD, "D   -> Dodo");
+	mlx_string_put(MLX, WIN, 20, 70, 0x0000CD, "S   -> Sierpinski");
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 170, 25, 0x0000CD,
+			"Fleche gauche -> Gauche");
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 170, 40, 0x0000CD,
+			"Fleche droite -> Droite");
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 170, 55, 0x0000CD,
+			"Fleche bas    -> Bas");
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 170, 70, 0x0000CD,
+			"Fleche haut   -> Haut");
+	mlx_string_put(MLX, WIN, (WIDTH - 335), 25, 0x0000CD,
+			"De 1 a 7              -> Couleur");
+	mlx_string_put(MLX, WIN, (WIDTH - 335), 40, 0x0000CD,
+			"Page up / Molette     -> Zoomer");
+	mlx_string_put(MLX, WIN, (WIDTH - 335), 55, 0x0000CD,
+			"Page down / Molette   -> Dezoomer");
+	mlx_string_put(MLX, WIN, (WIDTH - 335), 70, 0x0000CD,
+			"Entrer                -> Reset");
 }
 
 static void		write_data_screen(t_struct *data)
 {
-	char *s;
-
-	if (ft_strcmp(NAME, "Sierpinski"))
+	mlx_string_put(MLX, WIN, 680, HEIGHT - 25, 0x6600FF, "Fractale =");
+	mlx_string_put(MLX, WIN, 785, HEIGHT - 25, 0x6600FF, NAME);
+	if (ft_strcmp(NAME, "Julia") == 0)
 	{
-		s = ft_itoa(ZOOM);
-		mlx_string_put(MLX, WIN, 15, 25, 0x6600FF, "zoom = ");
-		mlx_string_put(MLX, WIN, 85, 25, 0x6600FF, s);
-		free(s);
-		s = NULL;
+		mlx_string_put(MLX, WIN, ((WIDTH / 2) - 150), HEIGHT - 25, 0x00bfff,
+			"Press X for Moove or Stop Julia");
 	}
-	mlx_string_put(MLX, WIN, 680, 25, 0x6600FF, "Fractal = ");
-	mlx_string_put(MLX, WIN, 780, 25, 0x6600FF, NAME);
 }
 
 void			write_screen(t_struct *data)
 {
-	white_screen(data);
-	write_color_screen(data);
+	write_info_screen(data);
 	write_data_screen(data);
 }

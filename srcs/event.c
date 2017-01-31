@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 00:05:24 by daugier           #+#    #+#             */
-/*   Updated: 2016/11/02 09:48:12 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 18:24:17 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int			mouse_func(int button, int x, int y, t_struct *data)
 		if (MAXI > 100)
 			MAXI -= 5;
 		ZOOM /= 1.1;
-		POS_X = (WIDTH / 2) - x + 50 + POS_X / 1.1;
+		POS_X = (WIDTH / 2) - x + 25 + POS_X / 1.1;
 		POS_Y = (HEIGHT / 2) - y + POS_Y / 1.1;
 	}
 	if (button == 5 && ZOOM * 1.1 <= 1234648375)
 	{
 		MAXI += 5;
 		ZOOM *= 1.1;
-		POS_X = (WIDTH / 2) - x + 50 + POS_X * 1.1;
+		POS_X = (WIDTH / 2) - x + 25 + POS_X * 1.1;
 		POS_Y = (HEIGHT / 2) - y + POS_Y * 1.1;
 	}
 	return (1);
@@ -52,18 +52,19 @@ void		change_color(int keycode, t_struct *data)
 
 static int	key_func_bis(int keycode, t_struct *data)
 {
-	if (keycode > 82 && keycode < 87)
+	if (keycode == 1 || keycode == 2 || keycode == 38 || keycode == 46)
 	{
+		STAY = 0;
 		free(NAME);
 		NAME = NULL;
 	}
-	if (keycode == 83 || keycode == 84)
+	if (keycode == 46)
 		NAME = ft_strdup("Mandelbrot");
-	if (keycode == 84)
+	if (keycode == 38)
 		NAME = ft_strdup("Julia");
-	if (keycode == 85)
+	if (keycode == 1)
 		NAME = ft_strdup("Sierpinski");
-	if (keycode == 86)
+	if (keycode == 2)
 		NAME = ft_strdup("Dodo");
 	if (keycode == 116 && ZOOM * 1.1 <= 1234648375)
 	{
@@ -106,6 +107,7 @@ int			mouse_motion(int x, int y, t_struct *data)
 {
 	if (X_MOOVE)
 	{
+		STAY = 1;
 		RE = (float)(x + 550 - WIDTH) / 400;
 		IM = (float)(y + 450 - HEIGHT) / 600;
 	}

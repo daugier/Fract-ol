@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 20:20:03 by daugier           #+#    #+#             */
-/*   Updated: 2016/10/23 03:08:50 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 18:24:18 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		calc_julia(t_struct *data)
 void		draw_julia(t_struct *data)
 {
 	Y = -1;
-	if (!X_MOOVE)
+	if (!STAY)
 	{
 		RE = 0.285;
 		IM = 0.01;

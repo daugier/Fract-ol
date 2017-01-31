@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:10:22 by daugier           #+#    #+#             */
-/*   Updated: 2016/10/23 03:06:13 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 18:22:35 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@
 # define WIDTH data->width
 # define NEW_RE data->new_re
 # define NEW_IM data->new_im
+# define STAY data->stay
 
 typedef struct		s_struct
 {
@@ -96,6 +97,7 @@ typedef struct		s_struct
 	int					bit_per_pixel;
 	int					width;
 	int					height;
+	int					stay;
 	long double			zoom;
 }					t_struct;
 
