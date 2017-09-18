@@ -6,13 +6,13 @@
 <h2 align="center">Exemple rendu du programme</h2>
 <p align="center">
     <h3 align="center">Fractale Julia</h3>
-    <img width="70%" src="https://raw.githubusercontent.com/daugier/fractol/master/img/img3.png"/>
+    <img width="70%" src="https://raw.githubusercontent.com/daugier/fract-ol/master/img/img3.png"/>
     <br/>
-    <img width="70%" src="https://raw.githubusercontent.com/daugier/fractol/master/img/img4.png"/>
+    <img width="70%" src="https://raw.githubusercontent.com/daugier/fract-ol/master/img/img4.png"/>
     <br/>
-    <img width="70%" src="https://raw.githubusercontent.com/daugier/fractol/master/img/img5.png"/>
+    <img width="70%" src="https://raw.githubusercontent.com/daugier/fract-ol/master/img/img5.png"/>
     <h3 align="center">Fractale Mandelbrot</h3>
-    <img width="70%" src="https://raw.githubusercontent.com/daugier/fractol/master/img/img2.png"/>
+    <img width="70%" src="https://raw.githubusercontent.com/daugier/fract-ol/master/img/img2.png"/>
     <h3 align="center">Fractale Sierpinski</h3>
-     <img width="70%" src="https://raw.githubusercontent.com/daugier/fractol/master/img/img1.png"/>
+     <img width="70%" src="https://raw.githubusercontent.com/daugier/fract-ol/master/img/img1.png"/>
 </p>
