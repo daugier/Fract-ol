@@ -11,8 +11,12 @@
     <img width="70%" src="https://raw.githubusercontent.com/daugier/fract-ol/master/img/img4.png"/>
     <br/>
     <img width="70%" src="https://raw.githubusercontent.com/daugier/fract-ol/master/img/img5.png"/>
+</p>
+<p align="center">
     <h3 align="center">Fractale Mandelbrot</h3>
     <img width="70%" src="https://raw.githubusercontent.com/daugier/fract-ol/master/img/img2.png"/>
+</p>
+<p align="center">
     <h3 align="center">Fractale Sierpinski</h3>
      <img width="70%" src="https://raw.githubusercontent.com/daugier/fract-ol/master/img/img1.png"/>
 </p>
